@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="lib/script.js"></script>
+  </head>
+  <body ng-app="MenuCategoriesApp" ng-cloak>
+    <div ng-controller="MenuCategoriesController as menu">
+      <h1>Narrow Down Your Choice</h1>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="search term"
+          class="form-control"
+          ng-model="menu.val"
+        />
+      </div>
+      <div class="form-group narrow-button">
+        <button class="btn btn-primary" ng-click="menu.search();">
+          Narrow It Down For Me!
+        </button>
+      </div>
+      <span ng-if="menu.error" style="color: red">{{menu.error}}</span>
+      <found-items title="my directive title" list="menu.categories" on-remove="menu.removeItem(index)"></found-items>
+    </div>
+  </body>
+</html>

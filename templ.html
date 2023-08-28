@@ -1,0 +1,9 @@
+<h2>{{listd.title}}</h2>
+<ul>
+        <li ng-repeat="category in listd.list">
+          {{ category.name}} : {{ category.email }}
+          <button class="btn btn-primary" ng-click="listd.onRemove({index:$index})">
+            remove
+          </button>
+        </li>
+</ul>
